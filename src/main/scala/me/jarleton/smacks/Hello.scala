@@ -1,3 +1,4 @@
+
 package me.jarleton.smacks
 
 /**
@@ -5,14 +6,4 @@ package me.jarleton.smacks
   */
 object Hello extends Greeting with App {
   println(greeting)
-}
-
-/**
-  *
-  */
-trait Greeting {
-  /**
-    * english hello !
-    */
-  lazy val greeting: String = "hello"
 }
