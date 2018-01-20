@@ -1,2 +1,108 @@
+
+# Created by https://www.gitignore.io/api/sbt,scala,intellij+all
+
+### Intellij+all ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+
+# Sensitive or high-churn files:
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Gradle:
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# CMake
+cmake-build-debug/
+
+# Mongo Explorer plugin:
+.idea/**/mongoSettings.xml
+
+## File-based project format:
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# Ruby plugin and RubyMine
+/.rakeTasks
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+### Intellij+all Patch ###
+# Ignores the whole idea folder
+# See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
+
+.idea/
+
+### SBT ###
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+
+### Scala ###
 *.class
 *.log
+
+
+# End of https://www.gitignore.io/api/sbt,scala,intellij+all
+Supprimerait .idea/.name
+Supprimerait .idea/compiler.xml
+Supprimerait .idea/encodings.xml
+Supprimerait .idea/inspectionProfiles/
+Supprimerait .idea/libraries/
+Supprimerait .idea/misc.xml
+Supprimerait .idea/modules.xml
+Supprimerait .idea/modules/root-build.iml
+Supprimerait .idea/modules/root.iml
+Supprimerait .idea/vcs.xml
+Supprimerait .idea/workspace.xml
+Supprimerait build.sbt
+Supprimerait project/Dependencies.scala
+Supprimerait project/build.properties
+Supprimerait project/target/config-classes/$7639c619813d96a978c1.cache
+Supprimerait project/target/config-classes/$82cc42b763e88233bd1d.cache
+Supprimerait project/target/config-classes/$87e043513ad8214c8502.cache
+Supprimerait project/target/scala-2.12/sbt-1.0/resolution-cache/
+Supprimerait project/target/streams/
+Supprimerait src/
+Supprimerait target/.history
+Supprimerait target/scala-2.12/hello_2.12-0.1.0-SNAPSHOT.jar
+Supprimerait target/scala-2.12/resolution-cache/
+Supprimerait target/streams/
+Supprimerait target/test-reports/
