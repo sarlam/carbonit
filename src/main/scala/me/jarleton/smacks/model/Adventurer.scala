@@ -17,11 +17,14 @@ case class Adventurer(
                        var direction: Directions.EnumVal,
                        var treasures: Int = 0
                      ) {
-  def toRight = {
+  def toRight: Adventurer = {
     this.direction match {
       case Directions.North => this.direction = Directions.Est
       case Directions.Est => this.direction = Directions.South
+      case Directions.South => this.direction = Directions.West
+      case Directions.West => this.direction = Directions.North
     }
+    this
   }
 
   def toLeft = {

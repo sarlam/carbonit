@@ -3,7 +3,6 @@ package me.jarleton.smacks.model
 
 import org.scalatest.{FlatSpec, Matchers}
 
-
 class AdventurerSpec extends FlatSpec with Matchers {
   final val NAME = "maria"
 
