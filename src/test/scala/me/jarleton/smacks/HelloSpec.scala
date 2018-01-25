@@ -1,3 +1,4 @@
+
 package me.jarleton.smacks
 
 import org.scalatest._
