@@ -1,7 +1,7 @@
 
 package me.jarleton.smacks.model
 
-import me.jarleton.smacks.excepetion.MoveOutOfBorder
+import me.jarleton.smacks.excepetion.{IllegalMove, MoveOutOfBorder}
 
 object Directions {
 
@@ -46,7 +46,40 @@ case class Adventurer(
   }
 
   @throws[MoveOutOfBorder]("when adventurer want to leave the land")
+  @throws[IllegalMove]("whan adventurer want to go through others or mountains")
   def move(land: Array[Array[(Int, Boolean)]]): Array[Array[(Int, Boolean)]] = {
-    Array[Array[(Int, Boolean)]]()
+    val x = this.x
+    val y = this.y
+    val pos = land(y)(x)
+    this.direction match {
+      case Directions.North =>
+        if (y == 0) throw new MoveOutOfBorder
+        val nextPos = land(y - 1)(x)
+        if (nextPos._1 == -1 || nextPos._2) throw new IllegalMove
+
+        this.y -= 1
+
+      case Directions.West =>
+        if (x == 0) throw new MoveOutOfBorder
+        val nextPos = land(y)(x - 1)
+        if (nextPos._1 == -1 || nextPos._2) throw new IllegalMove
+
+        this.x -= 1
+
+      case Directions.South =>
+        if (y == land.length - 1) throw new MoveOutOfBorder
+        val nextPos = land(y + 1)(x)
+        if (nextPos._1 == -1 || nextPos._2) throw new IllegalMove
+
+        this.y += 1
+
+      case Directions.Est =>
+        if (x == land(0).length - 1) throw new MoveOutOfBorder
+        val nextPos = land(y)(x + 1)
+        if (nextPos._1 == -1 || nextPos._2) throw new IllegalMove
+
+        this.x += 1
+    }
+    land
   }
 }

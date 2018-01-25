@@ -77,9 +77,9 @@ class AdventurerSpec extends FlatSpec with Matchers {
   }
 
   it should "not go beyond right border" in {
-    val a = Adventurer(NAME, 2, 0, "".toCharArray, Directions.Est)
-    val land = Array.tabulate[(Int, Boolean)](3, 3)((x, y) => (0, false))
-    land(2)(0) = (0, true)
+    val a = Adventurer(NAME, 0, 2, "".toCharArray, Directions.Est)
+    val land = Array.tabulate[(Int, Boolean)](3, 3)((y, x) => (0, false))
+    land(0)(2) = (0, true)
 
     assertThrows[MoveOutOfBorder] { // Result type: Assertion
       a.move(land)
@@ -87,9 +87,9 @@ class AdventurerSpec extends FlatSpec with Matchers {
   }
 
   it should "not go beyond lower border" in {
-    val a = Adventurer(NAME, 0, 2, "".toCharArray, Directions.South)
+    val a = Adventurer(NAME, 2, 0, "".toCharArray, Directions.South)
     val land = Array.tabulate[(Int, Boolean)](3, 3)((x, y) => (0, false))
-    land(0)(2) = (0, true)
+    land(2)(0) = (0, true)
 
     assertThrows[MoveOutOfBorder] { // Result type: Assertion
       a.move(land)
@@ -117,7 +117,7 @@ class AdventurerSpec extends FlatSpec with Matchers {
   }
 
   it should "move horizontally to West" in {
-    val a = Adventurer(NAME, 1, 1, "".toCharArray, Directions.Est)
+    val a = Adventurer(NAME, 1, 1, "".toCharArray, Directions.West)
     val land = Array.tabulate[(Int, Boolean)](3, 3)((x, y) => (0, false))
     land(1)(1) = (0, true)
 
@@ -127,7 +127,7 @@ class AdventurerSpec extends FlatSpec with Matchers {
   }
 
   it should "move horizontally to Est" in {
-    val a = Adventurer(NAME, 1, 1, "".toCharArray, Directions.West)
+    val a = Adventurer(NAME, 1, 1, "".toCharArray, Directions.Est)
     val land = Array.tabulate[(Int, Boolean)](3, 3)((x, y) => (0, false))
     land(1)(1) = (0, true)
 
