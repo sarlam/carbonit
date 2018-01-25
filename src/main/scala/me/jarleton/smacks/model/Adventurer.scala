@@ -1,6 +1,8 @@
 
 package me.jarleton.smacks.model
 
+import me.jarleton.smacks.excepetion.MoveOutOfBorder
+
 object Directions {
 
   sealed trait EnumVal
@@ -17,8 +19,8 @@ object Directions {
 
 case class Adventurer(
                        name: String,
-                       var x: Int,
                        var y: Int,
+                       var x: Int,
                        path: Array[Char],
                        var direction: Directions.EnumVal,
                        var treasures: Int = 0
@@ -43,6 +45,7 @@ case class Adventurer(
     this
   }
 
+  @throws[MoveOutOfBorder]("when adventurer want to leave the land")
   def move(land: Array[Array[(Int, Boolean)]]): Array[Array[(Int, Boolean)]] = {
     Array[Array[(Int, Boolean)]]()
   }
