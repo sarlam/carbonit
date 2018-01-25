@@ -44,14 +44,14 @@ class AdventurerSpec extends FlatSpec with Matchers {
 
   it should "turn from North to West" in {
     val a = Adventurer(NAME, 1, 1, "".toCharArray, Directions.North)
-    a.toRight
+    a.toLeft
     assert(a.direction == Directions.West)
   }
 
 
   it should "turn from West to South" in {
     val a = Adventurer(NAME, 1, 1, "".toCharArray, Directions.West)
-    a.toRight
+    a.toLeft
     assert(a.direction == Directions.South)
   }
 }
