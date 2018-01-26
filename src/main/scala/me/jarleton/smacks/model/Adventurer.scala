@@ -3,6 +3,9 @@ package me.jarleton.smacks.model
 
 import me.jarleton.smacks.excepetion.{IllegalMove, MoveOutOfBorder}
 
+/**
+  * Directions Enumeration.
+  */
 object Directions {
 
   sealed trait EnumVal
@@ -17,6 +20,16 @@ object Directions {
 
 }
 
+/**
+  * Adventurer Model.
+  *
+  * @param name       adventurer name
+  * @param y          current adventurer position y.
+  * @param x          current adventurer position x.
+  * @param path       full path walked by the adventurer.
+  * @param direction  current direction.
+  * @param treasures  number of already obtained treasures
+  */
 case class Adventurer(
                        name: String,
                        var y: Int,
@@ -25,6 +38,11 @@ case class Adventurer(
                        var direction: Directions.EnumVal,
                        var treasures: Int = 0
                      ) {
+  /**
+    * change the direction of the adventurer to Right.
+    *
+    * @return Adventurer
+    */
   def toRight: Adventurer = {
     this.direction match {
       case Directions.North => this.direction = Directions.Est
@@ -35,6 +53,11 @@ case class Adventurer(
     this
   }
 
+  /**
+    * change the direction of the adventurer to Left.
+    *
+    * @return Adventurer
+    */
   def toLeft: Adventurer = {
     this.direction match {
       case Directions.North => this.direction = Directions.West
@@ -45,6 +68,17 @@ case class Adventurer(
     this
   }
 
+  /**
+    * try to make the adventurer move to the next case in the land according to
+    * his/her direction.
+    *
+    * @param land               the land the adventurer is currently crawling.
+    * @throws MoveOutOfBorder   he/she try to leave the land.
+    * @throws IllegalMove       he/she try to go through a mountain or another
+    *                           adventurer.
+    * @return a new updated land
+    */
+  //noinspection ScalaStyle
   @throws[MoveOutOfBorder]("when adventurer want to leave the land")
   @throws[IllegalMove]("whan adventurer want to go through others or mountains")
   def move(land: Array[Array[(Int, Boolean)]]): Array[Array[(Int, Boolean)]] = {
